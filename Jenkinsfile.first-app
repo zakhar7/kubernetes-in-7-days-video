@@ -65,7 +65,6 @@ podTemplate(label: label,
             withEnv(['VERSION=' + env.version.trim(), 'COMMIT=' + env.commit.trim()]) {
               sh """
                 helm upgrade --install first-app \
-                  --namespace production \
                   --set image.repository=zmcloud/first-app \
                   --set image.tag=${VERSION}.${COMMIT} \
                   --set ingress.enabled=true \
